@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:kanji_deck/kanji_card_view_page/models/kanji_model.dart';
 
 class KanjiViewCardWidget extends StatelessWidget {
   final double? height;
   final double? width;
-  const KanjiViewCardWidget({Key? key, this.height, this.width})
+  final KanjiInfo? kanji;
+  const KanjiViewCardWidget({Key? key, this.height, this.width, this.kanji})
       : super(key: key);
 
   @override
@@ -14,9 +16,9 @@ class KanjiViewCardWidget extends StatelessWidget {
             height: height,
             width: width,
             child: Center(
-              child: const Text(
-                "水",
-                style: TextStyle(fontSize: 100),
+              child: Text(
+                kanji!.kanjiDrawing!,
+                style: const TextStyle(fontSize: 100),
               ),
             )));
   }
